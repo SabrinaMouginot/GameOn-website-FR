@@ -7,9 +7,9 @@ function editNav() {
   }
 }
 
-function validate() {
-alert('C\'est la validation du formulaire')
-}
+// function validate() {
+// alert('C\'est la validation du formulaire')
+// }
 
 // DOM Elements
 const modalbg = document.querySelector(".bground");
