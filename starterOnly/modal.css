@@ -502,7 +502,7 @@ footer {
 
 
 
-/* fermer */
+/* bouton fermer et message de confirmation */
 .bgroundBis {
   display: none;
   position: fixed;
@@ -524,8 +524,10 @@ footer {
   border-radius: 8px;
   flex-direction: column;
 }
-.textBis{
-  margin: auto; /* Important */
+
+.textBis {
+  margin: auto;
+  /* Important */
   text-align: center;
 }
 
