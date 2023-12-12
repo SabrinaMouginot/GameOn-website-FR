@@ -8,7 +8,7 @@ function editNav() {
 }
 
 // DOM Elements
-const form = document.querySelector("#form")
+const form = document.querySelector("#form");
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
