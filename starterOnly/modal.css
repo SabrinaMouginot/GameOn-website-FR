@@ -28,9 +28,9 @@ p {
   padding: 0.5vw;
 }
 
-img {
+/* img {
   padding-right: 1rem;
-}
+} */
 
 .topnav {
   overflow: hidden;
@@ -53,7 +53,7 @@ img {
   padding: 12px 12px;
   margin: 5px;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 12px;
   font-family: Roboto, sans-serif;
 }
 
@@ -570,7 +570,7 @@ footer {
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: -15px;
+    /* margin-top: -15px; */
   }
 }
 
@@ -595,7 +595,7 @@ footer {
   }
 
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: 4rem;
     white-space: normal;
   }
 
@@ -621,3 +621,9 @@ footer {
   }
 }
 
+
+@media screen and (min-width: 801px) and (max-width: 1000px){
+.hero-headline {
+  font-size: 5rem;
+}
+}
