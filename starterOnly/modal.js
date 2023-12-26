@@ -40,7 +40,7 @@ span1.onclick = function () {
   modalbgBis.style.display = "none";
   modalbg.style.display = "none";
 }
-// modalForm.addEventListener('submit', validate);
+// modalForm.addEventListener("submit", validate);
 
 
 
@@ -48,11 +48,31 @@ span1.onclick = function () {
 
 form.addEventListener("submit", validate)
 
+
+
+
+//je définis une fonction pour afficher les erreurs de saisies avec 2 paramètres 
+// 1 - l'élément en question, 2 - le message associé
+const setError = (element, message) => {
+  //j'affecte ma variable comme étant le parent de l'element passé en parametre 
+  const formData = element.parentElement;
+  //je defini l'emplacement d'affichage de mes messages d'erreur dans une variable
+  const errorDisplay = formData.querySelector('.erreur');
+
+  //le message s'affichera à l'emplacement défini avec un innerHTML grâce au second parametre de la fonction
+  errorDisplay.innerHTML = message;
+  // j'ajoute une classe à formData pour customiser l'apparence de l'erreur
+  formData.classList.add('erreurMessage');
+  // je supprime la classe de succès en cas d'erreur
+  formData.classList.remove('success');
+}
+
+
 function validate(event) {
   event.preventDefault()
   console.log('C\'est la validation du formulaire')
 
-  
+
 
 
 
@@ -63,6 +83,8 @@ function validate(event) {
   const mail = document.getElementById('email');
   const birthdate = document.getElementById('birthdate');
   const quantity = document.getElementById('quantity');
+  const conditionG = document.getElementById('checkbox1');
+  const checked = document.getElementById('Checked');
 
   //je définis mes variables pour récupérer les valeurs saisies 
   //et j'utilise la fonction trim pour retirer les espaces en début et fin de saisie 
@@ -75,8 +97,10 @@ function validate(event) {
   //Je définis les conditions d'erreur et affiche le ou les messages associé
   if (firstNameValue == "") {
     console.log('Le prénom est requis');
+    setError(firstName, 'Le prénom est requis');
   } else if (firstNameValue.length < 2) {
     console.log("Veuillez entrer 2 caractères ou plus pour le champ du prénom.");
+    setError(firstName, "Veuillez entrer 2 caractères ou plus pour le champ du prénom.");
   } else {
     console.log(firstName);
   }
@@ -91,7 +115,7 @@ function validate(event) {
 
   if (mailValue == "") {
     console.log('L\'adresse email est requise');
-  } else if (mailValid.test(mailValue) == false) {
+  } else if (mailValue == false) {
     //si non conforme j'affiche ce message
     console.log("Votre adresse mail n\'a pas le bon format.")
   } else {
