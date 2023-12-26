@@ -54,9 +54,8 @@ function validate(event) {
   const lastName = document.getElementById('last');
   const mail = document.getElementById('email');
   const birthdate = document.getElementById('birthdate');
-  const quantity = document.getElementById('quantity');
-  const conditionG = document.getElementById('checkbox1');
-  const checked = document.getElementById('Checked');
+  const quantity = document.getElementById('quantity'); 
+
 
   //je définis mes variables pour récupérer les valeurs saisies 
   //et j'utilise la fonction trim pour retirer les espaces en début et fin de saisie 
@@ -119,9 +118,45 @@ function validate(event) {
     // console.log(quantity);
   }
 
-  if(hasError==false) {
+  
+
+    // Validation pour les checkboxes "location"
+    const locationCheckboxes = document.querySelectorAll('input[name="location"]');
+    const isLocationChecked = Array.from(locationCheckboxes).some(checkbox => checkbox.checked);
+  
+    if (!isLocationChecked) {
+      // Aucune checkbox n'est cochée, afficher le message d'erreur
+      const locationErrorMessage = document.querySelector('.location-error');
+      locationErrorMessage.style.display = 'block';
+      hasError = true;
+    } else {
+      // Au moins une checkbox est cochée, cacher le message d'erreur
+      const locationErrorMessage = document.querySelector('.location-error');
+      locationErrorMessage.style.display = 'none';
+    }
+
+
+  //    // Validation pour les checkboxes "location"
+  // const locationCheckboxes = document.querySelectorAll('input[name="location"]');
+  // const isLocationChecked = Array.from(locationCheckboxes).some(checkbox => checkbox.checked);
+
+  // const locationErrorMessage = document.querySelector('.location-error');
+
+  // if (!isLocationChecked) {
+  //   // Aucune checkbox n'est cochée, afficher le message d'erreur
+  //   locationErrorMessage.setAttribute("data-error", "Entrez un choix svp");
+  //   locationErrorMessage.style.display = 'block';
+  //   hasError = true;
+  // } else {
+  //   // Au moins une checkbox est cochée, cacher le message d'erreur
+  //   locationErrorMessage.style.display = 'none';
+  // }
+
+
+
+  if (hasError == false) {
     //enlever la modale de formulaire 
     //afficher la modale de validation
   }
-}
 
+}
