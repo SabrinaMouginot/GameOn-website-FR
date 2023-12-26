@@ -83,7 +83,9 @@ function validate(event) {
   } else if (lastNameValue.length < 2) {
     setError(lastName, "Veuillez entrer 2 caractères ou plus pour le champ du nom.");
   } else {
-    console.log(lastName);
+    removeError(lastName);
+    hasError = false;
+    // console.log(lastName);
   }
 
   if (mailValue == "") {
@@ -93,7 +95,9 @@ function validate(event) {
     setError(mail, 'Votre adresse mail n\'a pas le bon format.');
   } else {
     // si conforme et que le champ n'est pas vide alors j'affiche le succès 
-    console.log(mail);
+    removeError(mail);
+    hasError = false;
+    // console.log(mail);
   }
 
   //axe d'amélioration
