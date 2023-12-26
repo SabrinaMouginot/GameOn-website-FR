@@ -74,8 +74,8 @@ function validate(event) {
     hasError = true;
     setError(firstName, "Veuillez entrer 2 caractères ou plus pour le champ du prénom.");
   } else {
-    console.log(firstName);
-
+    removeError(firstName);
+    hasError = false;
   }
 
   if (lastNameValue == "") {
