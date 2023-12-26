@@ -110,10 +110,13 @@ function validate(event) {
     // console.log(birthdate);
   }
 
-  if (quantityValue == "" || quantityValue < 0) {
-    console.log('Veuillez saisir un chiffre');
+  if (quantityValue == "" || quantityValue < 0) { //si la valeur est négative ou absente, alors on a le msg d'erreur.
+    setError(quantity, "Veuillez saisir un chiffre");
+    // console.log('Veuillez saisir un chiffre');
   } else {
-    console.log(quantity);
+    removeError(quantity);
+    hasError = false;
+    // console.log(quantity);
   }
 
   if(hasError==false) {
