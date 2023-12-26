@@ -503,32 +503,8 @@ footer {
 
 
 /** bouton fermer et message de confirmation **/
-
-.bgroundBis {
+.no_display {
   display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  overflow: auto;
-  background-color: rgba(26, 39, 156, 0.4);
-}
-
-.modal-body-bis {
-  display: flex;
-  width: 38%;
-  height: 80vh;
-  margin: auto;
-  padding-bottom: 20px;
-  border-radius: 8px;
-  flex-direction: column;
-}
-
-.textBis {
-  margin: auto;
-  text-align: center;
 }
 
 
