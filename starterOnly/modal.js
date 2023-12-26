@@ -102,9 +102,12 @@ function validate(event) {
 
   //axe d'amélioration
   if (birthdateValue == "") {
-    console.log("Vous devez entrer votre date de naissance.");
+    setError(birthdate, "Vous devez entrer votre date de naissance.");
+    // console.log("Vous devez entrer votre date de naissance.");
   } else {
-    console.log(birthdate);
+    removeError(birthdate);
+    hasError = false;
+    // console.log(birthdate);
   }
 
   if (quantityValue == "" || quantityValue < 0) {
