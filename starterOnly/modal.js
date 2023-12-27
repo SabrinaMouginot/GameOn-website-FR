@@ -56,6 +56,8 @@ function validate(event) {
   const birthdate = document.getElementById('birthdate');
   const quantity = document.getElementById('quantity');
   const locationRadios = document.querySelectorAll('input[name="location"]');
+  const termsCheckbox = document.getElementById('checkbox1');
+
 
 
 
@@ -137,6 +139,16 @@ function validate(event) {
     removeError(locationRadios[0]);
     hasError = false;
   }
+
+
+  if (!termsCheckbox.checked) {
+    setError(termsCheckbox, 'Vous devez vérifier que vous acceptez les termes et conditions.');
+    hasError = true;
+  } else {
+    removeError(termsCheckbox);
+    hasError = false;
+  }
+  
 
 
   if (hasError == false) {
