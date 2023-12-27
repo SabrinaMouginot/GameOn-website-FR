@@ -54,7 +54,7 @@ function validate(event) {
   const lastName = document.getElementById('last');
   const mail = document.getElementById('email');
   const birthdate = document.getElementById('birthdate');
-  const quantity = document.getElementById('quantity'); 
+  const quantity = document.getElementById('quantity');
   const locationRadios = document.querySelectorAll('input[name="location"]');
 
 
@@ -121,22 +121,22 @@ function validate(event) {
   }
 
 
-    // Vérification pour les boutons radio
-    let locationSelected = false;
+  // Vérification pour les boutons radio
+  let locationSelected = false;
 
-    locationRadios.forEach((radio) => {
-      if (radio.checked) {
-        locationSelected = true;
-      }
-    });
-  
-    if (!locationSelected) {
-      setError(locationRadios[0], 'Vous devez choisir une option.');
-      hasError = true;
-    } else {
-      removeError(locationRadios[0]);
-      hasError = false;
+  locationRadios.forEach((radio) => {
+    if (radio.checked) {
+      locationSelected = true;
     }
+  });
+
+  if (!locationSelected) {
+    setError(locationRadios[0], 'Vous devez choisir une option.');
+    hasError = true;
+  } else {
+    removeError(locationRadios[0]);
+    hasError = false;
+  }
 
 
   if (hasError == false) {
