@@ -121,7 +121,6 @@ function validate(event) {
   }
 
 
-
     // Vérification pour les boutons radio
     let locationSelected = false;
 
@@ -138,13 +137,6 @@ function validate(event) {
       removeError(locationRadios[0]);
       hasError = false;
     }
-  
-    if (hasError == false) {
-      // Enlever la modale de formulaire et afficher la modale de validation
-    }
-
-
-
 
 
   if (hasError == false) {
