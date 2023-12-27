@@ -140,7 +140,7 @@ function validate(event) {
     hasError = false;
   }
 
-
+  // Vérification pour la checkbox des termes et conditions
   if (!termsCheckbox.checked) {
     setError(termsCheckbox, 'Vous devez vérifier que vous acceptez les termes et conditions.');
     hasError = true;
@@ -148,7 +148,7 @@ function validate(event) {
     removeError(termsCheckbox);
     hasError = false;
   }
-  
+
 
 
   if (hasError == false) {
