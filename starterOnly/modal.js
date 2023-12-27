@@ -55,6 +55,8 @@ function validate(event) {
   const mail = document.getElementById('email');
   const birthdate = document.getElementById('birthdate');
   const quantity = document.getElementById('quantity'); 
+  const locationRadios = document.querySelectorAll('input[name="location"]');
+
 
 
   //je définis mes variables pour récupérer les valeurs saisies 
@@ -118,39 +120,30 @@ function validate(event) {
     // console.log(quantity);
   }
 
-  
 
-    // Validation pour les checkboxes "location"
-    const locationCheckboxes = document.querySelectorAll('input[name="location"]');
-    const isLocationChecked = Array.from(locationCheckboxes).some(checkbox => checkbox.checked);
+
+    // Vérification pour les boutons radio
+    let locationSelected = false;
+
+    locationRadios.forEach((radio) => {
+      if (radio.checked) {
+        locationSelected = true;
+      }
+    });
   
-    if (!isLocationChecked) {
-      // Aucune checkbox n'est cochée, afficher le message d'erreur
-      const locationErrorMessage = document.querySelector('.location-error');
-      locationErrorMessage.style.display = 'block';
+    if (!locationSelected) {
+      setError(locationRadios[0], 'Vous devez choisir une option.');
       hasError = true;
     } else {
-      // Au moins une checkbox est cochée, cacher le message d'erreur
-      const locationErrorMessage = document.querySelector('.location-error');
-      locationErrorMessage.style.display = 'none';
+      removeError(locationRadios[0]);
+      hasError = false;
+    }
+  
+    if (hasError == false) {
+      // Enlever la modale de formulaire et afficher la modale de validation
     }
 
 
-  //    // Validation pour les checkboxes "location"
-  // const locationCheckboxes = document.querySelectorAll('input[name="location"]');
-  // const isLocationChecked = Array.from(locationCheckboxes).some(checkbox => checkbox.checked);
-
-  // const locationErrorMessage = document.querySelector('.location-error');
-
-  // if (!isLocationChecked) {
-  //   // Aucune checkbox n'est cochée, afficher le message d'erreur
-  //   locationErrorMessage.setAttribute("data-error", "Entrez un choix svp");
-  //   locationErrorMessage.style.display = 'block';
-  //   hasError = true;
-  // } else {
-  //   // Au moins une checkbox est cochée, cacher le message d'erreur
-  //   locationErrorMessage.style.display = 'none';
-  // }
 
 
 
