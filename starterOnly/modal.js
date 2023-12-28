@@ -150,10 +150,23 @@ function validate(event) {
   }
 
 
+  if (!hasError) {
 
-  if (hasError == false) {
-    //enlever la modale de formulaire 
-    //afficher la modale de validation
+      //enlever la modale de formulaire 
+      //afficher la modale de validation
+
+
+    // Cacher la modale du formulaire
+    const modalbg = document.querySelector(".bground");
+    if (modalbg) {
+      modalbg.style.display = "none";
+    }
+  
+    // Afficher la modale de validation
+    // const modalValidation = document.querySelector(".modal-validation");
+    // if (modalValidation) {
+    //   modalValidation.style.display = "block";
+    // }
   }
-
 }
+
