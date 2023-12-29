@@ -10,7 +10,8 @@ function editNav() {
 // DOM Elements
 const form = document.querySelector("#form");
 const modalbg = document.querySelector(".bground");
-const modalValidation = document.querySelector(".no_display");
+const modalbgUn = document.querySelector(".un");
+const modalValidation = document.querySelector(".bis");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 
@@ -156,14 +157,12 @@ function validate(event) {
     //enlever la modale de formulaire 
     //afficher la modale de validation
 
-    modalbg.style.display = "none";
+    // Cacher la modale de formulaire
+    modalbgUn.style.display = "none";
+
+    // Afficher la modale de validation
     modalValidation.style.display = "block";
 
-  } else {
-    modalbg.style.display = "block";
-  }
-
+  } 
 }
-
-
 

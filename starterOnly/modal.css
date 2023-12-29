@@ -160,6 +160,25 @@ main {
   margin: 15px auto;
 }
 
+/* .modal-body-bis { */
+  /* display: flex; */
+  /* width: 38%;
+  height: 80vh; */
+  /* margin: auto; */
+  /* padding-bottom: 20px;
+  border-radius: 8px; */
+  /* flex-direction: column; */
+/* } */
+.bis{ 
+  /* width: 38%; */
+  display: none;
+  height: 80vh;
+  margin: auto; 
+  text-align: center;
+} 
+
+
+
 label {
   font-family: var(--font-default);
   font-size: 17px;
@@ -505,7 +524,7 @@ footer {
 
 
 /** bouton fermer et message de confirmation **/
-.no_display {
+.bis {
   display: none;
 }
 
