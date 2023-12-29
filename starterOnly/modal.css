@@ -160,17 +160,8 @@ main {
   margin: 15px auto;
 }
 
-/* .modal-body-bis { */
-  /* display: flex; */
-  /* width: 38%;
-  height: 80vh; */
-  /* margin: auto; */
-  /* padding-bottom: 20px;
-  border-radius: 8px; */
-  /* flex-direction: column; */
-/* } */
+
 .bis{ 
-  /* width: 38%; */
   display: none;
   height: 80vh;
   margin: auto; 
@@ -522,11 +513,6 @@ footer {
   }
 }
 
-
-/** bouton fermer et message de confirmation **/
-.bis {
-  display: none;
-}
 
 
 /** RESPONSIVE **/
