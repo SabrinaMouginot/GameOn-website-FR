@@ -153,7 +153,6 @@ function validate(event) {
 
 
   if (!hasError) {
-
     //enlever la modale de formulaire 
     //afficher la modale de validation
 
@@ -162,7 +161,18 @@ function validate(event) {
 
     // Afficher la modale de validation
     modalValidation.style.display = "block";
+  }
 
-  } 
+
+  //FERMER LE MESSAGE VALIDATION AVEC LE BOUTON FERMER
+  // Récupérez le bouton "Fermer" dans la modale de validation
+  const closeModalBtn = document.querySelector("#modal-btn");
+  // Ajoutez un gestionnaire d'événements pour le clic sur le bouton "Fermer"
+  closeModalBtn.addEventListener("click", closeValidationModal);
+  // Définissez la fonction pour fermer la modale de validation
+  function closeValidationModal() {
+    // Cacher la modale de validation
+    modalValidation.style.display = "none";
+  }
 }
 
