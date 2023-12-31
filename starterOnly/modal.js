@@ -50,7 +50,7 @@ const removeError = (element) => {
 
 function validate(event) {
   event.preventDefault()
-  let hasError = false;
+  let hasError = true;
   // Définition et récupération de tous les élements dans des variables 
   const firstName = document.getElementById('first');
   const lastName = document.getElementById('last');
@@ -74,9 +74,9 @@ function validate(event) {
   //Je définis les conditions d'erreur et affiche le ou les messages associé
   if (firstNameValue == "") {
     setError(firstName, 'Le prénom est requis');
-    hasError = true;
+    // hasError = true;
   } else if (firstNameValue.length < 2) {
-    hasError = true;
+    // hasError = true;
     setError(firstName, "Veuillez entrer 2 caractères ou plus pour le champ du prénom.");
   } else {
     removeError(firstName);
@@ -96,6 +96,7 @@ function validate(event) {
   if (mailValue == "") {
     setError(mail, 'L\'adresse email est requise');
   } else if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/.test(mailValue))) {
+    //Regex pour vérifier le format du mail
     //si non conforme j'affiche ce message
     setError(mail, 'Votre adresse mail n\'a pas le bon format.');
   } else {
@@ -155,25 +156,27 @@ function validate(event) {
   if (!hasError) {
     //enlever la modale de formulaire 
     //afficher la modale de validation
-
+  
     // Cacher la modale de formulaire
     modalbgUn.style.display = "none";
     // Afficher la modale de validation
     modalValidation.style.display = "block";
-
-
-    //pour réinitialiser le formulaire, je crois qu'il fait le code suivant:
-    //form.reset();
+  
+    //pour réinitialiser le formulaire, je crois qu'il faut un morceau de code comme suit:
+    // form.reset();
     //Mais je en peux pas tester tant que l'écran reste grisée après la fermeture du message validation
-  }
-
-
+  } 
+  
+  
   //FERMER LE MESSAGE VALIDATION AVEC LE BOUTON FERMER
   
   // Récupérez le bouton "Fermer" dans la modale de validation
   const closeModalBtn = document.querySelector("#modal-btn");
+  
   // Ajoutez un gestionnaire d'événements pour le clic sur le bouton "Fermer"
   closeModalBtn.addEventListener("click", closeValidationModal);
+  // modalBtn.addEventListener("click", closeValidationModal);
+  
   // Définissez la fonction pour fermer la modale de validation
   function closeValidationModal() {
   // Cacher la modale de validation
