@@ -50,7 +50,15 @@ const removeError = (element) => {
 
 function validate(event) {
   event.preventDefault()
-  let hasError = true;
+  let hasError = {
+    firstName: false,
+    lastName: false,
+    mail: false,
+    birthdate: false,
+    quantity: false,
+    locationRadios: false,
+    termsCheckbox: false
+  };
   // Définition et récupération de tous les élements dans des variables 
   const firstName = document.getElementById('first');
   const lastName = document.getElementById('last');
@@ -59,9 +67,6 @@ function validate(event) {
   const quantity = document.getElementById('quantity');
   const locationRadios = document.querySelectorAll('input[name="location"]');
   const termsCheckbox = document.getElementById('checkbox1');
-
-
-
 
   //je définis mes variables pour récupérer les valeurs saisies 
   //et j'utilise la fonction trim pour retirer les espaces en début et fin de saisie 
@@ -74,57 +79,56 @@ function validate(event) {
   //Je définis les conditions d'erreur et affiche le ou les messages associé
   if (firstNameValue == "") {
     setError(firstName, 'Le prénom est requis');
-    // hasError = true;
+    hasError.firstName = true;
   } else if (firstNameValue.length < 2) {
-    // hasError = true;
+    hasError.firstName = true;
     setError(firstName, "Veuillez entrer 2 caractères ou plus pour le champ du prénom.");
   } else {
     removeError(firstName);
-    hasError = false;
+    hasError.firstName = false;
   }
 
   if (lastNameValue == "") {
     setError(lastName, 'Le nom est requis');
+    hasError.lastName = true;
   } else if (lastNameValue.length < 2) {
     setError(lastName, "Veuillez entrer 2 caractères ou plus pour le champ du nom.");
+    hasError.lastName = true;
   } else {
     removeError(lastName);
-    hasError = false;
-    // console.log(lastName);
+    hasError.lastName = false;
   }
 
   if (mailValue == "") {
     setError(mail, 'L\'adresse email est requise');
+    hasError.mail = true;
   } else if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/.test(mailValue))) {
     //Regex pour vérifier le format du mail
     //si non conforme j'affiche ce message
     setError(mail, 'Votre adresse mail n\'a pas le bon format.');
+    hasError.mail = true;
   } else {
     // si conforme et que le champ n'est pas vide alors j'affiche le succès 
     removeError(mail);
-    hasError = false;
-    // console.log(mail);
+    hasError.mail = false;
   }
 
   //axe d'amélioration
   if (birthdateValue == "") {
     setError(birthdate, "Vous devez entrer votre date de naissance.");
-    // console.log("Vous devez entrer votre date de naissance.");
+    hasError.birthdate = true;
   } else {
     removeError(birthdate);
-    hasError = false;
-    // console.log(birthdate);
+    hasError.birthdate = false;
   }
 
   if (quantityValue == "" || quantityValue < 0) { //si la valeur est négative ou absente, alors on a le msg d'erreur.
     setError(quantity, "Veuillez saisir un chiffre");
-    // console.log('Veuillez saisir un chiffre');
+    hasError.quantity = true;
   } else {
     removeError(quantity);
-    hasError = false;
-    // console.log(quantity);
+    hasError.quantity = false;
   }
-
 
   // Vérification pour les boutons radio
   let locationSelected = false;
@@ -137,54 +141,31 @@ function validate(event) {
 
   if (!locationSelected) {
     setError(locationRadios[0], 'Vous devez choisir une option.');
-    hasError = true;
+    hasError.locationRadios = true;
   } else {
     removeError(locationRadios[0]);
-    hasError = false;
+    hasError.locationRadios = false;
   }
 
   // Vérification pour la checkbox des termes et conditions
   if (!termsCheckbox.checked) {
     setError(termsCheckbox, 'Vous devez vérifier que vous acceptez les termes et conditions.');
-    hasError = true;
+    hasError.termsCheckbox = true;
   } else {
     removeError(termsCheckbox);
-    hasError = false;
+    hasError.termsCheckbox = false;
   }
 
-
-  if (!hasError) {
+  if (!hasError.firstName && !hasError.lastName && !hasError.mail && !hasError.birthdate && !hasError.locationRadios && !hasError.quantity && !hasError.termsCheckbox) {
     //enlever la modale de formulaire 
     //afficher la modale de validation
-
     // Cacher la modale de formulaire
     modalbgUn.style.display = "none";
     // Afficher la modale de validation
     modalValidation.style.display = "block";
-
-
     //pour réinitialiser le formulaire, je crois qu'il faut un morceau de code comme suit:
     // form.reset();
     //Mais je en peux pas tester tant que l'écran reste grisée après la fermeture du message validation
-
   }
-
-
-  //FERMER LE MESSAGE VALIDATION AVEC LE BOUTON FERMER
-
-  // Récupérez le bouton "Fermer" dans la modale de validation
-  const closeModalBtn = document.querySelector("#modal-btn");
-
-  // Ajoutez un gestionnaire d'événements pour le clic sur le bouton "Fermer"
-  closeModalBtn.addEventListener("click", closeValidationModal);
-  // modalBtn.addEventListener("click", closeValidationModal);
-
-  // Définissez la fonction pour fermer la modale de validation
-  function closeValidationModal() {
-  // Cacher la modale de validation
-  modalValidation.style.display = "none";
-  }
-
-
 }
 

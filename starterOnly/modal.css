@@ -160,16 +160,12 @@ main {
   margin: 15px auto;
 }
 
-
 .bis {
   display: none;
   height: 80vh;
   margin: auto;
   text-align: center;
   /* flex-direction: column; */
-
-
-  display: flex;
   align-items: center; /* Centrer verticalement */
   justify-content: center; /* Centrer horizontalement */
   margin: 5% auto;
@@ -577,9 +573,9 @@ footer {
     content: unset;
   }
 
-  .hero-content .btn-signup {
+  /* .hero-content .btn-signup {
     display: none;
-  }
+  } */
 
   .hero-headline {
     font-size: 4rem;
