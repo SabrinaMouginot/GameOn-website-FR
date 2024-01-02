@@ -24,7 +24,7 @@ function launchModal() {
 }
 
 // Fermer la modal
-var btnClose = document.querySelectorAll(".close"); //premier élément de classe "close"
+var btnClose = document.querySelectorAll(".close-btn"); //premier élément de classe "close"
 btnClose.forEach((btn) => btn.addEventListener("click", closeModal));
 
 function closeModal() {
