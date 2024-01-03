@@ -138,13 +138,10 @@ main {
   height: 100%;
   width: 100%;
   overflow: auto;
-  /* background-color: rgba(26, 39, 156, 0.4); */
 }
 
 .content {
   margin: 5% auto;
-  width: 100%;
-  max-width: 500px;
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
   background: #232323;
@@ -152,45 +149,17 @@ main {
   overflow: hidden;
   position: relative;
   color: #fff;
-  padding-top: 10px;
+  width: 100%;
+}
+
+.un {
+  max-width: 450px;
 }
 
 .modal-body {
   padding: 15px 8%;
   margin: 15px auto;
 }
-
-.bis {
-  display: none;
-  height: 80vh;
-  margin: auto;
-  text-align: center;
-  /* flex-direction: column; */
-  align-items: center; /* Centrer verticalement */
-  justify-content: center; /* Centrer horizontalement */
-  margin: 5% auto;
-  width: 100%;
-  max-width: 500px;
-  animation-name: modalopen;
-  animation-duration: var(--modal-duration);
-  background: #232323;
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-  color: #fff;
-  padding-top: 10px;
-}
-
-.bis .modal-body .text {
-  display: block;
-  align-items: center;
-}
-#modal-btn{
-  display: block;
-  align-items:end;
-}
-
-
 
 label {
   font-family: var(--font-default);
@@ -222,7 +191,7 @@ input {
   display: block;
   margin-top: 7px;
   margin-bottom: 7px;
-  text-align: right;
+  text-align: left;
   line-height: 0.3;
   opacity: 0;
   transition: 0.3s;
@@ -642,7 +611,6 @@ footer {
   .topnav a.icon {
     float: right;
     display: block;
-    /* margin-top: -15px; */
   }
 
   .hero-headline {
@@ -655,3 +623,35 @@ footer {
     white-space: normal;
   }
 }
+
+
+/* MISE EN PAGE DE LA MODALE DE VALIDATION */
+
+.bis {
+  display: none;
+  height: 97vh;
+  text-align: center;
+  flex-direction: column;
+  align-items: center; /* Centrer verticalement */
+  justify-content: center; /* Centrer horizontalement */
+  max-width: 450px;
+} 
+
+.bis .modal-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+}
+
+.bis .modal-body .text {
+  flex-grow: 1; /*assure que l'élt flexible puisse grandir pour occuper tout l'espace disponible sur l'axe principal de son conteneur*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+}
+

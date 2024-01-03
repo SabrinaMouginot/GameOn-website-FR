@@ -163,9 +163,6 @@ function validate(event) {
     modalbgUn.style.display = "none";
     // Afficher la modale de validation
     modalValidation.style.display = "block";
-    //pour réinitialiser le formulaire, je crois qu'il faut un morceau de code comme suit:
-    // form.reset();
-    //Mais je en peux pas tester tant que l'écran reste grisée après la fermeture du message validation
   }
 }
 
