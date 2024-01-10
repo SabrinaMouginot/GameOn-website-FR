@@ -30,6 +30,9 @@ btnClose.forEach((btn) => btn.addEventListener("click", closeModal)); //écouteu
 
 function closeModal() { //modifie le style de l'élément avec la classe "modalbg" 
   modalbg.style.display = "none"; //cache la modale
+
+  // Recharge automatiquement la page
+  window.location.reload();
 }
 
 form.addEventListener("submit", validate) // l'élt du formulaire d'id 'form' a un écouteur d'évènement. 
@@ -168,5 +171,5 @@ function validate(event) {  /*Pour valider les données saisies dans un formulai
     // Afficher la modale de validation
     modalValidation.style.display = "block";
   }
-}
 
+}

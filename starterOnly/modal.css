@@ -632,10 +632,12 @@ footer {
   height: 97vh;
   text-align: center;
   flex-direction: column;
-  align-items: center; /* Centrer verticalement */
-  justify-content: center; /* Centrer horizontalement */
+  align-items: center;
+  /* Centrer verticalement */
+  justify-content: center;
+  /* Centrer horizontalement */
   max-width: 450px;
-} 
+}
 
 .bis .modal-body {
   display: flex;
@@ -647,11 +649,11 @@ footer {
 }
 
 .bis .modal-body .text {
-  flex-grow: 1; /*assure que l'élt flexible puisse grandir pour occuper tout l'espace disponible sur l'axe principal de son conteneur*/
+  flex-grow: 1;
+  /*assure que l'élt flexible puisse grandir pour occuper tout l'espace disponible sur l'axe principal de son conteneur*/
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 70%;
 }
-
