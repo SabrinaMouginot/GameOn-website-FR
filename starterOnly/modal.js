@@ -24,14 +24,16 @@ function launchModal() {
 }
 
 // Fermer la modal
-var btnClose = document.querySelectorAll(".close-btn"); //premier élément de classe "close"
-btnClose.forEach((btn) => btn.addEventListener("click", closeModal));
+var btnClose = document.querySelectorAll(".close-btn"); //pour sélectionner tous les éléments de la classe CSS "close-btn"
+btnClose.forEach((btn) => btn.addEventListener("click", closeModal)); //écouteur d'événements pour le clic: qd le btn est cliqué, la fonction closeModal sera appelée.
+//foreach permet de répéter sur chaque
 
-function closeModal() {
-  modalbg.style.display = "none";
+function closeModal() { //modifie le style de l'élément avec la classe "modalbg" 
+  modalbg.style.display = "none"; //cache la modale
 }
 
-form.addEventListener("submit", validate)
+form.addEventListener("submit", validate) // l'élt du formulaire d'id 'form' a un écouteur d'évènement. 
+// QUand le formulaire est soumis, la fonction validate est appelée.
 
 //je définis une fonction pour afficher les erreurs de saisies avec 2 paramètres 
 // 1 - l'élément en question, 2 - le message associé
@@ -48,9 +50,10 @@ const removeError = (element) => {
   formData.setAttribute("data-error", "");
 }
 
-function validate(event) {
-  event.preventDefault()
-  let hasError = {
+function validate(event) {  /*Pour valider les données saisies dans un formulaire avant de le soumettre*/
+  event.preventDefault() // empêche la soumission du formulaire par défaut : je peux exécuter ma propre logique de validation, gérer les erreurs éventuelles et décider si le formulaire doit réellement être soumis ou non. 
+
+  let hasError = { // objet pour suivre l'état des erreurs dans le formulaire. on y trouve chaque champ du formulaire associé à une valeur boléenne.
     firstName: false,
     lastName: false,
     mail: false,
@@ -59,6 +62,7 @@ function validate(event) {
     locationRadios: false,
     termsCheckbox: false
   };
+
   // Définition et récupération de tous les élements dans des variables 
   const firstName = document.getElementById('first');
   const lastName = document.getElementById('last');
