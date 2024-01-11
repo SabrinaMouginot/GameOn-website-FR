@@ -125,8 +125,8 @@ function validate(event) {  /*Pour valider les données saisies dans un formulai
     hasError.birthdate = true;
   } else {
     // Expression régulière pour valider le format de la date
-    const dateRegex = /^(\d{2})\/(\d{2})\/(\d{4})$/;
-    const match = birthdateValue.match(dateRegex);
+    // const dateRegex = /^(\d{2})\/(\d{2})\/(\d{4})$/;
+    const match = birthdateValue.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
   
     if (!match) {
       setError(birthdate, "Votre date de naissance doit avoir le format JJ/MM/AAAA.");
@@ -137,7 +137,8 @@ function validate(event) {  /*Pour valider les données saisies dans un formulai
       const year = parseInt(match[3], 10);
   
       // Valider la plage de jours, mois et année
-      const isValidDay = day >= 1 && day <= 31; // Vous pouvez ajuster en fonction du mois
+      const isValidDay = day >= 1 && ((month === 1 || month === 3 || month === 5 || month === 7 || month === 8 || month === 10 || month === 12) ? day <= 31 : day <= 30);
+      // Vous pouvez ajuster en fonction du mois
       const isValidMonth = month >= 1 && month <= 12;
       const isValidYear = year <= 2024;
   
