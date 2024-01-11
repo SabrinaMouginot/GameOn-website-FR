@@ -119,16 +119,36 @@ function validate(event) {  /*Pour valider les données saisies dans un formulai
     removeError(mail);
     hasError.mail = false;
   }
-  
+
   if (birthdateValue === "") {
     setError(birthdate, "Vous devez entrer votre date de naissance.");
     hasError.birthdate = true;
-  }else if (!(/^\d{2}\/\d{2}\/\d{4}$/.test(birthdateValue))) {
-    setError(birthdate, "Votre date de naissance doit avoir le format JJ/MM/AAAA.");
-    hasError.birthdate = true;
   } else {
-    removeError(birthdate);
-    hasError.birthdate = false;
+    // Expression régulière pour valider le format de la date
+    const dateRegex = /^(\d{2})\/(\d{2})\/(\d{4})$/;
+    const match = birthdateValue.match(dateRegex);
+  
+    if (!match) {
+      setError(birthdate, "Votre date de naissance doit avoir le format JJ/MM/AAAA.");
+      hasError.birthdate = true;
+    } else {
+      const day = parseInt(match[1], 10);
+      const month = parseInt(match[2], 10);
+      const year = parseInt(match[3], 10);
+  
+      // Valider la plage de jours, mois et année
+      const isValidDay = day >= 1 && day <= 31; // Vous pouvez ajuster en fonction du mois
+      const isValidMonth = month >= 1 && month <= 12;
+      const isValidYear = year <= 2024;
+  
+      if (!isValidDay || !isValidMonth || !isValidYear) {
+        setError(birthdate, "Veuillez entrer une date de naissance valide.");
+        hasError.birthdate = true;
+      } else {
+        removeError(birthdate);
+        hasError.birthdate = false;
+      }
+    }
   }
 
   // if (quantityValue == "" || isNaN(quantityValue) || quantityValue < 0) { 
