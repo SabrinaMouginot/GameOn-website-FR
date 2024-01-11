@@ -129,7 +129,7 @@ function validate(event) {  /*Pour valider les données saisies dans un formulai
     hasError.birthdate = false;
   }
 
-  if (quantityValue == "" || quantityValue < 0) { //si la valeur est négative ou absente, alors on a le msg d'erreur.
+  if (quantityValue == "" || isNaN(quantityValue) || quantityValue < 0) { //si la valeur est négative ou absente, alors on a le msg d'erreur.
     setError(quantity, "Veuillez saisir un chiffre");
     hasError.quantity = true;
   } else {
