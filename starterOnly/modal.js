@@ -124,7 +124,7 @@ function validate(event) {  /*Pour valider les données saisies dans un formulai
     setError(birthdate, "Vous devez entrer votre date de naissance.");
     hasError.birthdate = true;
   }else if (!(/^\d{2}\/\d{2}\/\d{4}$/.test(birthdateValue))) {
-    setError(birthdate, "Votre date de naissance doit avoir le format dd/MM/YYYY.");
+    setError(birthdate, "Votre date de naissance doit avoir le format JJ/MM/AAAA.");
     hasError.birthdate = true;
   } else {
     removeError(birthdate);
