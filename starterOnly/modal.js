@@ -119,10 +119,12 @@ function validate(event) {  /*Pour valider les données saisies dans un formulai
     removeError(mail);
     hasError.mail = false;
   }
-
-  //axe d'amélioration
-  if (birthdateValue == "") {
+  
+  if (birthdateValue === "") {
     setError(birthdate, "Vous devez entrer votre date de naissance.");
+    hasError.birthdate = true;
+  }else if (!(/^\d{2}\/\d{2}\/\d{4}$/.test(birthdateValue))) {
+    setError(birthdate, "Votre date de naissance doit avoir le format dd/MM/YYYY.");
     hasError.birthdate = true;
   } else {
     removeError(birthdate);
